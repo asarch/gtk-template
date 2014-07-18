@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_title(GTK_WINDOW(window), WINDOW_TITLE);
 	gtk_window_set_default_size(GTK_WINDOW(window), 640, 480);
-	gtk_container_set_border_width(GTK_CONTAINER(window), 5);
+	gtk_container_set_border_width(GTK_CONTAINER(window), 2);
 
 	accel_group = gtk_accel_group_new();
 	gtk_window_add_accel_group(GTK_WINDOW(window), accel_group);
@@ -149,12 +149,7 @@ int main(int argc, char *argv[])
 
 	toolbar_quit_button = gtk_tool_button_new_from_stock(GTK_STOCK_QUIT);
 	gtk_toolbar_insert(GTK_TOOLBAR(toolbar), toolbar_quit_button, -1);
-	g_signal_connect(
-		G_OBJECT(toolbar_quit_button),
-		"clicked",
-		G_CALLBACK(gtk_main_quit),
-		NULL
-	);
+	g_signal_connect(G_OBJECT(toolbar_quit_button), "clicked", G_CALLBACK(gtk_main_quit), NULL);
 
 	/* Scrolled Window */
 	scrolled_window = gtk_scrolled_window_new(NULL, NULL);
@@ -173,10 +168,8 @@ int main(int argc, char *argv[])
 	gtk_container_add(GTK_CONTAINER(scrolled_window), text_view);
 
 	/* Status bar */
-
 	statusbar = gtk_statusbar_new();
 	gtk_box_pack_start(GTK_BOX(client_area), statusbar, FALSE, FALSE, 0);
-
 
 	gtk_widget_show_all(window);
 	gtk_main();
