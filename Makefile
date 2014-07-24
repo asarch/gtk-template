@@ -1,4 +1,4 @@
-TARGET = template
+TARGET = gtk-template
 SRCS = main.c
 OBJS = main.o
 HDRS =
