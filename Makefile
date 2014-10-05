@@ -1,16 +1,16 @@
 TARGET = gtk-template
-SRCS = main.c
-OBJS = main.o
-HDRS =
+SRCS = main.c menu.c toolbar.c statusbar.c callbacks.c
+OBJS = main.o menu.o toolbar.o statusbar.o callbacks.o
+HDRS = main.h menu.h toolbar.h statusbar.h callbacks.h
 LD_FLAGS = `pkg-config gtk+-3.0 --libs`
-CC_FLAGS = `pkg-config gtk+-3.0 --cflags`
-CC_OPTS = -g -ggdb
+CC_FLAGS = -g -ggdb
+CC_FLAGS += `pkg-config gtk+-3.0 --cflags`
 
 $(TARGET) : $(OBJS)
 	$(CC) $(OBJS) -o $(TARGET) $(LD_FLAGS)
 
 $(OBJS) : $(SRCS) $(HDRS)
-	$(CC) -c $(SRCS) $(CC_OPTS) $(CC_FLAGS)
+	$(CC) -c $(SRCS) $(CC_FLAGS)
 
 .PHONY:
 clean:
