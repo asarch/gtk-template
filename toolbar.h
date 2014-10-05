@@ -5,9 +5,8 @@
 #include "main.h"
 #endif
 
-GtkWidget *get_toolbar();
-
-void open_file_callback(GtkWidget *widget, gpointer data);
-void about_menu_item_callback(GtkWidget *widget, gpointer data);
+#ifndef _CALLBACKS_H_
+#include "callbacks.h"
+#endif
 
 #endif /* #ifndef _TOOLBAR_H_ */

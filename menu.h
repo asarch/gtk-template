@@ -5,15 +5,8 @@
 #include "main.h"
 #endif
 
-void open_file_callback1(GtkWidget *widget, gpointer data);
-void about_menu_item_callback1(GtkWidget *widget, gpointer data);
-
-
-/*
- * void open_file(GtkWidget *widget, gpointer data)
- *
- */
-
-GtkWidget *get_menu(GtkWidget *);
+#ifndef _CALLBACKS_H_
+#include "callbacks.h"
+#endif
 
 #endif /* #ifndef _MAIN_H_ */

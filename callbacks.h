@@ -5,8 +5,20 @@
 #include "main.h"
 #endif
 
+void open_file_callback1(GtkWidget *widget, gpointer data);
+void about_menu_item_callback1(GtkWidget *widget, gpointer data);
+
+
 /*
- * Callbacks declaration
+ * void open_file(GtkWidget *widget, gpointer data)
+ *
  */
+
+GtkWidget *get_menu(GtkWidget *);
+
+GtkWidget *get_toolbar();
+
+void open_file_callback(GtkWidget *widget, gpointer data);
+void about_menu_item_callback(GtkWidget *widget, gpointer data);
 
 #endif /* #ifndef _CALLBACKS_H_ */
