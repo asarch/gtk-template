@@ -5,6 +5,8 @@
 #include "main.h"
 #endif
 
-GtkWidget *get_statusbar();
+void init_statusbar();
+
+GtkWidget *statusbar;
 
 #endif /* #ifndef _STATUSBAR_H_ */

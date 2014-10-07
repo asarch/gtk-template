@@ -1,26 +1,7 @@
 #include "toolbar.h"
 
-GtkWidget *get_toolbar()
+void init_toolbar()
 {
-	GtkWidget *toolbar;
-
-	GtkToolItem *toolbar_new_button;
-	GtkToolItem *toolbar_open_button;
-	GtkToolItem *toolbar_save_button;
-	GtkToolItem *toolbar_save_as_button;
-
-	GtkToolItem *toolbar_undo_button;
-	GtkToolItem *toolbar_redo_button;
-
-	GtkToolItem *toolbar_cut_button;
-	GtkToolItem *toolbar_copy_button;
-	GtkToolItem *toolbar_paste_button;
-
-	GtkToolItem *toolbar_find_button;
-	GtkToolItem *toolbar_replace_button;
-
-	GtkToolItem *toolbar_quit_button;
-
 	toolbar = gtk_toolbar_new();
 	gtk_toolbar_set_style(GTK_TOOLBAR(toolbar), GTK_TOOLBAR_ICONS);
 	gtk_container_set_border_width(GTK_CONTAINER(toolbar), 2);
@@ -85,7 +66,4 @@ GtkWidget *get_toolbar()
 
 	g_signal_connect(G_OBJECT(toolbar_quit_button), "clicked", G_CALLBACK(gtk_main_quit), NULL);
 	g_signal_connect(G_OBJECT(toolbar_open_button), "clicked", G_CALLBACK(open_file_callback), NULL);
-
-	return toolbar;
 }
-

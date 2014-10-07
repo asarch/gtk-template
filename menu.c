@@ -1,41 +1,7 @@
 #include "menu.h"
 
-GtkWidget* get_menu(GtkWidget *window)
+void init_menu()
 {
-	GtkWidget *menu_bar;
-	GtkAccelGroup *accel_group;
-
-	GtkWidget *file_menu_item;
-	GtkWidget *file_menu;
-	GtkWidget *new_menu_item;
-	GtkWidget *open_menu_item;
-	GtkWidget *save_menu_item;
-	GtkWidget *save_as_menu_item;
-	GtkWidget *quit_menu_item;
-
-	GtkWidget *edit_menu_item;
-	GtkWidget *edit_menu;
-	GtkWidget *undo_menu_item;
-	GtkWidget *redo_menu_item;
-	GtkWidget *cut_menu_item;
-	GtkWidget *copy_menu_item;
-	GtkWidget *paste_menu_item;
-	GtkWidget *delete_menu_item;
-	GtkWidget *select_all_menu_item;
-
-	GtkWidget *search_menu_item;
-	GtkWidget *search_menu;
-	GtkWidget *find_menu_item;
-	GtkWidget *find_next_menu_item;
-	GtkWidget *find_previous_menu_item;
-	GtkWidget *replace_menu_item;
-	GtkWidget *clear_highlight_menu_item;
-	GtkWidget *goto_line_menu_item;
-
-	GtkWidget *help_menu_item;
-	GtkWidget *help_menu;
-	GtkWidget *about_menu_item;
-
 	accel_group = gtk_accel_group_new();
 	gtk_window_add_accel_group(GTK_WINDOW(window), accel_group);
 
@@ -144,7 +110,4 @@ GtkWidget* get_menu(GtkWidget *window)
 	about_menu_item = gtk_menu_item_new_with_mnemonic("_About");
 	gtk_menu_shell_append(GTK_MENU_SHELL(help_menu), about_menu_item);
 	g_signal_connect(G_OBJECT(about_menu_item), "activate", G_CALLBACK(about_menu_item_callback1), NULL);
-
-	return menu_bar;
 }
-

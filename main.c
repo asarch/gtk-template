@@ -9,12 +9,12 @@
 #include "menu.h"
 #include "toolbar.h"
 #include "statusbar.h"
+#include "window.h"
 
-const char WINDOW_TITLE[] = "Template 1.0";
+#include <string.h>
 
 int main(int argc, char *argv[])
 {
-	GtkWidget *window;
 	GtkWidget *client_area;
 
 	GtkWidget *menu_bar_handle_box;
@@ -25,12 +25,21 @@ int main(int argc, char *argv[])
 	GtkWidget *text_view;
 	GtkTextBuffer *text_buffer;
 
-	gtk_init(&argc, &argv);
+	GtkWidget *treeview;
+	GtkTreeStore *model;
+	GtkTreeIter iterator;
 
-	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-	gtk_window_set_title(GTK_WINDOW(window), WINDOW_TITLE);
-	gtk_window_set_default_size(GTK_WINDOW(window), 640, 480);
-	gtk_container_set_border_width(GTK_CONTAINER(window), 2);
+	GtkCellRenderer *bool_renderer;
+	GtkCellRenderer *text_renderer;
+
+	GtkTreeViewColumn *bool_column;
+	GtkTreeViewColumn *text_column;
+
+	int i;
+	char buf[80];
+
+	gtk_init(&argc, &argv);
+	init_window("Template 1.0");
 
 	g_signal_connect_swapped(
 		G_OBJECT(window),		/* El widget			*/
@@ -46,12 +55,16 @@ int main(int argc, char *argv[])
 	/* Menu bar */
 	menu_bar_handle_box = gtk_handle_box_new();
 	gtk_box_pack_start(GTK_BOX(client_area), menu_bar_handle_box, FALSE, FALSE, 0);
-	gtk_container_add(GTK_CONTAINER(menu_bar_handle_box), get_menu(window));
+
+	init_menu();
+	gtk_container_add(GTK_CONTAINER(menu_bar_handle_box), menu_bar);
 
 	/* Toolbar */
 	toolbar_handle_box = gtk_handle_box_new();
 	gtk_box_pack_start(GTK_BOX(client_area), toolbar_handle_box, FALSE, FALSE, 0);
-	gtk_container_add(GTK_CONTAINER(toolbar_handle_box), get_toolbar());
+
+	init_toolbar();
+	gtk_container_add(GTK_CONTAINER(toolbar_handle_box), toolbar);
 
 	/* Scrolled Window */
 	scrolled_window = gtk_scrolled_window_new(NULL, NULL);
@@ -66,11 +79,57 @@ int main(int argc, char *argv[])
 	gtk_box_pack_start(GTK_BOX(client_area), scrolled_window, TRUE, TRUE, 0);
 
 	/* Textview widget */
+	/*
 	text_view = gtk_text_view_new();
 	text_buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(text_view));
 	gtk_container_add(GTK_CONTAINER(scrolled_window), text_view);
+	*/
 
-	gtk_box_pack_start(GTK_BOX(client_area), get_statusbar(), FALSE, FALSE, 0);
+	/* Treeview */
+	model = gtk_tree_store_new(2, G_TYPE_BOOLEAN, G_TYPE_STRING);
+
+	treeview = gtk_tree_view_new_with_model(GTK_TREE_MODEL(model));
+
+	bool_renderer = gtk_cell_renderer_toggle_new();
+	text_renderer = gtk_cell_renderer_text_new();
+
+	bool_column = gtk_tree_view_column_new_with_attributes(
+		" ", 
+		bool_renderer,
+		"active",
+		0,
+		NULL
+	);
+
+	text_column = gtk_tree_view_column_new_with_attributes(
+		"Nombre",
+		text_renderer,
+		"text",
+		1,
+		NULL
+	);
+
+	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), bool_column);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), text_column);
+
+	for (i = 1; i <= 1000; i++){
+		sprintf(buf, "Item %d", i);
+		gtk_tree_store_append(model, &iterator, NULL);
+
+		gtk_tree_store_set(
+			model,
+			&iterator,
+			0, 0,
+			1, buf,
+			-1
+		);
+	}
+
+	gtk_container_add(GTK_CONTAINER(scrolled_window), treeview);
+
+	/* Status bar */
+	init_statusbar();
+	gtk_box_pack_start(GTK_BOX(client_area), statusbar, FALSE, FALSE, 0);
 
 	gtk_widget_show_all(window);
 	gtk_main();
