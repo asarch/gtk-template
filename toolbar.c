@@ -7,114 +7,114 @@ void init_toolbar()
 	gtk_container_set_border_width(GTK_CONTAINER(toolbar), 2);
 
 	/*
-	toolbar_new_button = gtk_tool_button_new_from_stock(GTK_STOCK_NEW);
-	toolbar_open_button = gtk_tool_button_new_from_stock(GTK_STOCK_OPEN);
-	toolbar_save_button = gtk_tool_button_new_from_stock(GTK_STOCK_SAVE);
-	toolbar_save_as_button = gtk_tool_button_new_from_stock(GTK_STOCK_SAVE_AS);
-	toolbar_quit_button = gtk_tool_button_new_from_stock(GTK_STOCK_QUIT);
+	toolbar_new_button = gtk_tool_button_new_from_stock("text-x-generic",
+	toolbar_open_button = gtk_tool_button_new_from_stock("text-x-generic",
+	toolbar_save_button = gtk_tool_button_new_from_stock("text-x-generic",
+	toolbar_save_as_button = gtk_tool_button_new_from_stock("text-x-generic",
+	toolbar_quit_button = gtk_tool_button_new_from_stock("text-x-generic",
 
-	toolbar_undo_button = gtk_tool_button_new_from_stock(GTK_STOCK_UNDO);
-	toolbar_redo_button = gtk_tool_button_new_from_stock(GTK_STOCK_REDO);
+	toolbar_undo_button = gtk_tool_button_new_from_stock("text-x-generic",
+	toolbar_redo_button = gtk_tool_button_new_from_stock("text-x-generic",
 
-	toolbar_cut_button = gtk_tool_button_new_from_stock(GTK_STOCK_CUT);
-	toolbar_copy_button = gtk_tool_button_new_from_stock(GTK_STOCK_COPY);
-	toolbar_paste_button = gtk_tool_button_new_from_stock(GTK_STOCK_PASTE);
+	toolbar_cut_button = gtk_tool_button_new_from_stock("text-x-generic",
+	toolbar_copy_button = gtk_tool_button_new_from_stock("text-x-generic",
+	toolbar_paste_button = gtk_tool_button_new_from_stock("text-x-generic",
 
-	toolbar_find_button = gtk_tool_button_new_from_stock(GTK_STOCK_FIND);
-	toolbar_replace_button = gtk_tool_button_new_from_stock(GTK_STOCK_FIND_AND_REPLACE);
+	toolbar_find_button = gtk_tool_button_new_from_stock("text-x-generic",
+	toolbar_replace_button = gtk_tool_button_new_from_stock("text-x-generic",
 	*/
 
 	toolbar_new_button = gtk_tool_button_new(
-		gtk_image_new_from_stock(
-			GTK_STOCK_NEW,
+		gtk_image_new_from_icon_name(
+			"text-x-generic",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"New File"
 	);
 
 	toolbar_open_button = gtk_tool_button_new(
-		gtk_image_new_from_stock(
-			GTK_STOCK_OPEN,
+		gtk_image_new_from_icon_name(
+			"text-x-generic",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Open File"
 	);
 
 	toolbar_save_button = gtk_tool_button_new(
-		gtk_image_new_from_stock(
-			GTK_STOCK_SAVE,
+		gtk_image_new_from_icon_name(
+			"text-x-generic",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Save File"
 	);
 
 	toolbar_save_as_button = gtk_tool_button_new(
-		gtk_image_new_from_stock(
-			GTK_STOCK_SAVE_AS,
+		gtk_image_new_from_icon_name(
+			"text-x-generic",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Save As New File"
 	);
 
 	toolbar_quit_button = gtk_tool_button_new(
-		gtk_image_new_from_stock(
-			GTK_STOCK_QUIT,
+		gtk_image_new_from_icon_name(
+			"text-x-generic",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Quit Application"
 	);
 
 	toolbar_undo_button = gtk_tool_button_new(
-		gtk_image_new_from_stock(
-			GTK_STOCK_UNDO,
+		gtk_image_new_from_icon_name(
+			"text-x-generic",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Undo Operation"
 	);
 
 	toolbar_redo_button = gtk_tool_button_new(
-		gtk_image_new_from_stock(
-			GTK_STOCK_REDO,
+		gtk_image_new_from_icon_name(
+			"text-x-generic",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Redo Operation"
 	);
 
 	toolbar_cut_button = gtk_tool_button_new(
-		gtk_image_new_from_stock(
-			GTK_STOCK_CUT,
+		gtk_image_new_from_icon_name(
+			"text-x-generic",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Cut"
 	);
 
 	toolbar_copy_button = gtk_tool_button_new(
-		gtk_image_new_from_stock(
-			GTK_STOCK_COPY,
+		gtk_image_new_from_icon_name(
+			"text-x-generic",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Copy"
 	);
 
 	toolbar_paste_button = gtk_tool_button_new(
-		gtk_image_new_from_stock(
-			GTK_STOCK_PASTE,
+		gtk_image_new_from_icon_name(
+			"text-x-generic",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Paste"
 	);
 
 	toolbar_find_button = gtk_tool_button_new(
-		gtk_image_new_from_stock(
-			GTK_STOCK_FIND,
+		gtk_image_new_from_icon_name(
+			"text-x-generic",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Find"
 	);
 
 	toolbar_replace_button = gtk_tool_button_new(
-		gtk_image_new_from_stock(
-			GTK_STOCK_FIND_AND_REPLACE,
+		gtk_image_new_from_icon_name(
+			"text-x-generic",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Replace"

@@ -14,11 +14,11 @@ void init_menu()
 	file_menu = gtk_menu_new();
 	gtk_menu_item_set_submenu(GTK_MENU_ITEM(file_menu_item), file_menu);
 
-	new_menu_item = gtk_image_menu_item_new_from_stock(GTK_STOCK_NEW, accel_group);
-	open_menu_item = gtk_image_menu_item_new_from_stock(GTK_STOCK_OPEN, accel_group);
-	save_menu_item = gtk_image_menu_item_new_from_stock(GTK_STOCK_SAVE, accel_group);
-	save_as_menu_item = gtk_image_menu_item_new_from_stock(GTK_STOCK_SAVE_AS, accel_group);
-	quit_menu_item = gtk_image_menu_item_new_from_stock(GTK_STOCK_QUIT, accel_group);
+	new_menu_item = gtk_menu_item_new_with_mnemonic("_New");
+	open_menu_item = gtk_menu_item_new_with_mnemonic("_Open");
+	save_menu_item = gtk_menu_item_new_with_mnemonic("_Save");
+	save_as_menu_item = gtk_menu_item_new_with_mnemonic("Save _as");
+	quit_menu_item = gtk_menu_item_new_with_mnemonic("_Qui");
 
 	gtk_widget_add_accelerator(new_menu_item, "activate", accel_group, GDK_KEY_N, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 	gtk_widget_add_accelerator(open_menu_item, "activate", accel_group, GDK_KEY_O, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
@@ -41,13 +41,11 @@ void init_menu()
 	edit_menu = gtk_menu_new();
 	gtk_menu_item_set_submenu(GTK_MENU_ITEM(edit_menu_item), edit_menu);
 
-	undo_menu_item = gtk_image_menu_item_new_from_stock(GTK_STOCK_UNDO, accel_group);
-	redo_menu_item = gtk_image_menu_item_new_from_stock(GTK_STOCK_REDO, accel_group);
-
-	cut_menu_item = gtk_image_menu_item_new_from_stock(GTK_STOCK_CUT, accel_group);
-	copy_menu_item = gtk_image_menu_item_new_from_stock(GTK_STOCK_COPY, accel_group);
-	paste_menu_item = gtk_image_menu_item_new_from_stock(GTK_STOCK_PASTE, accel_group);
-
+	undo_menu_item = gtk_menu_item_new_with_mnemonic("_Undo");
+	redo_menu_item = gtk_menu_item_new_with_mnemonic("_Redo");
+	cut_menu_item = gtk_menu_item_new_with_mnemonic("_Cut");
+	copy_menu_item = gtk_menu_item_new_with_mnemonic("_Copy");
+	paste_menu_item = gtk_menu_item_new_with_mnemonic("_Paste");
 	delete_menu_item = gtk_menu_item_new_with_mnemonic("_Delete");
 	select_all_menu_item = gtk_menu_item_new_with_mnemonic("_Select All");
 
@@ -75,10 +73,10 @@ void init_menu()
 	search_menu = gtk_menu_new();
 	gtk_menu_item_set_submenu(GTK_MENU_ITEM(search_menu_item), search_menu);
 
-	find_menu_item = gtk_image_menu_item_new_from_stock(GTK_STOCK_FIND, accel_group);
+	find_menu_item = gtk_menu_item_new_with_mnemonic("_Find");
 	find_next_menu_item = gtk_menu_item_new_with_mnemonic("Find Next");
 	find_previous_menu_item = gtk_menu_item_new_with_mnemonic("Find Previous");
-	replace_menu_item = gtk_image_menu_item_new_from_stock(GTK_STOCK_FIND_AND_REPLACE, accel_group);
+	replace_menu_item = gtk_menu_item_new_with_mnemonic("_Replace");
 	clear_highlight_menu_item = gtk_menu_item_new_with_mnemonic("Clear Hightlight");
 	goto_line_menu_item = gtk_menu_item_new_with_mnemonic("Goto Line");
 

@@ -2,6 +2,7 @@
 
 void open_file_callback(GtkWidget *widget, gpointer data)
 {
+#ifdef _ALEF_H_
 	GtkWidget *dialog;
 
 	dialog = gtk_file_chooser_dialog_new(
@@ -32,4 +33,5 @@ void open_file_callback(GtkWidget *widget, gpointer data)
 	}
 
 	gtk_widget_destroy(dialog);
+#endif
 }
