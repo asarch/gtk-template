@@ -1,10 +1,6 @@
 #ifndef _CALLBACKS_H_
 #define _CALLBACKS_H_
 
-#ifndef _MAIN_H_
-#include "main.h"
-#endif
-
 #ifndef _MENU_H_
 #include "menu.h"
 #endif

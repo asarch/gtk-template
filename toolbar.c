@@ -24,25 +24,101 @@ void init_toolbar()
 	toolbar_replace_button = gtk_tool_button_new_from_stock(GTK_STOCK_FIND_AND_REPLACE);
 	*/
 
-	toolbar_new_button = gtk_tool_button_new();
-	toolbar_open_button = gtk_tool_button_new();
-	toolbar_save_button = gtk_tool_button_new();
-	toolbar_save_as_button = gtk_tool_button_new();
-	toolbar_quit_button = gtk_tool_button_new();
+	toolbar_new_button = gtk_tool_button_new(
+		gtk_image_new_from_stock(
+			GTK_STOCK_NEW,
+			GTK_ICON_SIZE_SMALL_TOOLBAR
+		),
+		"New File"
+	);
 
-	toolbar_undo_button = gtk_tool_button_new();
-	toolbar_redo_button = gtk_tool_button_new();
+	toolbar_open_button = gtk_tool_button_new(
+		gtk_image_new_from_stock(
+			GTK_STOCK_OPEN,
+			GTK_ICON_SIZE_SMALL_TOOLBAR
+		),
+		"Open File"
+	);
 
-	toolbar_cut_button = gtk_tool_button_new();
-	toolbar_copy_button = gtk_tool_button_new();
-	toolbar_paste_button = gtk_tool_button_new();
+	toolbar_save_button = gtk_tool_button_new(
+		gtk_image_new_from_stock(
+			GTK_STOCK_SAVE,
+			GTK_ICON_SIZE_SMALL_TOOLBAR
+		),
+		"Save File"
+	);
 
-	toolbar_find_button = gtk_tool_button_new();
-	toolbar_replace_button = gtk_tool_button_new();
+	toolbar_save_as_button = gtk_tool_button_new(
+		gtk_image_new_from_stock(
+			GTK_STOCK_SAVE_AS,
+			GTK_ICON_SIZE_SMALL_TOOLBAR
+		),
+		"Save As New File"
+	);
 
+	toolbar_quit_button = gtk_tool_button_new(
+		gtk_image_new_from_stock(
+			GTK_STOCK_QUIT,
+			GTK_ICON_SIZE_SMALL_TOOLBAR
+		),
+		"Quit Application"
+	);
 
+	toolbar_undo_button = gtk_tool_button_new(
+		gtk_image_new_from_stock(
+			GTK_STOCK_UNDO,
+			GTK_ICON_SIZE_SMALL_TOOLBAR
+		),
+		"Undo Operation"
+	);
 
+	toolbar_redo_button = gtk_tool_button_new(
+		gtk_image_new_from_stock(
+			GTK_STOCK_REDO,
+			GTK_ICON_SIZE_SMALL_TOOLBAR
+		),
+		"Redo Operation"
+	);
 
+	toolbar_cut_button = gtk_tool_button_new(
+		gtk_image_new_from_stock(
+			GTK_STOCK_CUT,
+			GTK_ICON_SIZE_SMALL_TOOLBAR
+		),
+		"Cut"
+	);
+
+	toolbar_copy_button = gtk_tool_button_new(
+		gtk_image_new_from_stock(
+			GTK_STOCK_COPY,
+			GTK_ICON_SIZE_SMALL_TOOLBAR
+		),
+		"Copy"
+	);
+
+	toolbar_paste_button = gtk_tool_button_new(
+		gtk_image_new_from_stock(
+			GTK_STOCK_PASTE,
+			GTK_ICON_SIZE_SMALL_TOOLBAR
+		),
+		"Paste"
+	);
+
+	toolbar_find_button = gtk_tool_button_new(
+		gtk_image_new_from_stock(
+			GTK_STOCK_FIND,
+			GTK_ICON_SIZE_SMALL_TOOLBAR
+		),
+		"Find"
+	);
+
+	toolbar_replace_button = gtk_tool_button_new(
+		gtk_image_new_from_stock(
+			GTK_STOCK_FIND_AND_REPLACE,
+			GTK_ICON_SIZE_SMALL_TOOLBAR
+		),
+		"Replace"
+	);
 
 	gtk_toolbar_insert(GTK_TOOLBAR(toolbar), toolbar_new_button, -1);
 	gtk_toolbar_insert(GTK_TOOLBAR(toolbar), toolbar_open_button, -1);
