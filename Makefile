@@ -1,7 +1,7 @@
 TARGET = gtk-template
-SRCS = main.c menu.c toolbar.c statusbar.c callbacks.c window.c
-OBJS = main.o menu.o toolbar.o statusbar.o callbacks.o window.o
-HDRS = main.h menu.h toolbar.h statusbar.h callbacks.h window.h
+SRCS = main.c menu.c toolbar.c statusbar.c callbacks.c window.c treeview.c
+OBJS = main.o menu.o toolbar.o statusbar.o callbacks.o window.o treeview.o
+HDRS = main.h menu.h toolbar.h statusbar.h callbacks.h window.h treeview.h
 LD_FLAGS = `pkg-config gtk+-3.0 --libs`
 CC_FLAGS = -g -ggdb
 CC_FLAGS += `pkg-config gtk+-3.0 --cflags`

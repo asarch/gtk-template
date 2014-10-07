@@ -34,9 +34,6 @@ void init_menu()
 	gtk_menu_shell_append(GTK_MENU_SHELL(file_menu), gtk_separator_menu_item_new());
 	gtk_menu_shell_append(GTK_MENU_SHELL(file_menu), quit_menu_item);
 	
-	g_signal_connect(G_OBJECT(open_menu_item), "activate", G_CALLBACK(open_file_callback1), NULL);
-	g_signal_connect(G_OBJECT(quit_menu_item), "activate", G_CALLBACK(gtk_main_quit), NULL);
-
 	/* Edit menu item */
 	edit_menu_item = gtk_menu_item_new_with_mnemonic("_Edit");
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu_bar), edit_menu_item);
@@ -109,5 +106,4 @@ void init_menu()
 
 	about_menu_item = gtk_menu_item_new_with_mnemonic("_About");
 	gtk_menu_shell_append(GTK_MENU_SHELL(help_menu), about_menu_item);
-	g_signal_connect(G_OBJECT(about_menu_item), "activate", G_CALLBACK(about_menu_item_callback1), NULL);
 }

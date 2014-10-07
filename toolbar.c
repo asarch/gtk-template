@@ -6,6 +6,7 @@ void init_toolbar()
 	gtk_toolbar_set_style(GTK_TOOLBAR(toolbar), GTK_TOOLBAR_ICONS);
 	gtk_container_set_border_width(GTK_CONTAINER(toolbar), 2);
 
+	/*
 	toolbar_new_button = gtk_tool_button_new_from_stock(GTK_STOCK_NEW);
 	toolbar_open_button = gtk_tool_button_new_from_stock(GTK_STOCK_OPEN);
 	toolbar_save_button = gtk_tool_button_new_from_stock(GTK_STOCK_SAVE);
@@ -21,6 +22,27 @@ void init_toolbar()
 
 	toolbar_find_button = gtk_tool_button_new_from_stock(GTK_STOCK_FIND);
 	toolbar_replace_button = gtk_tool_button_new_from_stock(GTK_STOCK_FIND_AND_REPLACE);
+	*/
+
+	toolbar_new_button = gtk_tool_button_new();
+	toolbar_open_button = gtk_tool_button_new();
+	toolbar_save_button = gtk_tool_button_new();
+	toolbar_save_as_button = gtk_tool_button_new();
+	toolbar_quit_button = gtk_tool_button_new();
+
+	toolbar_undo_button = gtk_tool_button_new();
+	toolbar_redo_button = gtk_tool_button_new();
+
+	toolbar_cut_button = gtk_tool_button_new();
+	toolbar_copy_button = gtk_tool_button_new();
+	toolbar_paste_button = gtk_tool_button_new();
+
+	toolbar_find_button = gtk_tool_button_new();
+	toolbar_replace_button = gtk_tool_button_new();
+
+
+
+
 
 	gtk_toolbar_insert(GTK_TOOLBAR(toolbar), toolbar_new_button, -1);
 	gtk_toolbar_insert(GTK_TOOLBAR(toolbar), toolbar_open_button, -1);
@@ -63,7 +85,4 @@ void init_toolbar()
 	gtk_tool_item_set_tooltip_text(toolbar_replace_button, "Find and replace text");
 
 	gtk_tool_item_set_tooltip_text(toolbar_quit_button, "Quit application");
-
-	g_signal_connect(G_OBJECT(toolbar_quit_button), "clicked", G_CALLBACK(gtk_main_quit), NULL);
-	g_signal_connect(G_OBJECT(toolbar_open_button), "clicked", G_CALLBACK(open_file_callback), NULL);
 }

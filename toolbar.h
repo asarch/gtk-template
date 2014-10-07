@@ -5,10 +5,6 @@
 #include "main.h"
 #endif
 
-#ifndef _CALLBACKS_H_
-#include "callbacks.h"
-#endif
-
 void init_toolbar();
 
 GtkWidget *toolbar;
