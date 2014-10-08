@@ -26,7 +26,7 @@ void init_toolbar()
 
 	toolbar_new_button = gtk_tool_button_new(
 		gtk_image_new_from_icon_name(
-			"text-x-generic",
+			"gtk-new",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"New File"
@@ -34,7 +34,7 @@ void init_toolbar()
 
 	toolbar_open_button = gtk_tool_button_new(
 		gtk_image_new_from_icon_name(
-			"text-x-generic",
+			"gtk-open",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Open File"
@@ -42,7 +42,7 @@ void init_toolbar()
 
 	toolbar_save_button = gtk_tool_button_new(
 		gtk_image_new_from_icon_name(
-			"text-x-generic",
+			"gtk-save",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Save File"
@@ -50,7 +50,7 @@ void init_toolbar()
 
 	toolbar_save_as_button = gtk_tool_button_new(
 		gtk_image_new_from_icon_name(
-			"text-x-generic",
+			"gtk-save-as",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Save As New File"
@@ -58,7 +58,7 @@ void init_toolbar()
 
 	toolbar_quit_button = gtk_tool_button_new(
 		gtk_image_new_from_icon_name(
-			"text-x-generic",
+			"gtk-quit",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Quit Application"
@@ -66,7 +66,7 @@ void init_toolbar()
 
 	toolbar_undo_button = gtk_tool_button_new(
 		gtk_image_new_from_icon_name(
-			"text-x-generic",
+			"gtk-undo",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Undo Operation"
@@ -74,7 +74,7 @@ void init_toolbar()
 
 	toolbar_redo_button = gtk_tool_button_new(
 		gtk_image_new_from_icon_name(
-			"text-x-generic",
+			"gtk-redo",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Redo Operation"
@@ -82,7 +82,7 @@ void init_toolbar()
 
 	toolbar_cut_button = gtk_tool_button_new(
 		gtk_image_new_from_icon_name(
-			"text-x-generic",
+			"gtk-cut",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Cut"
@@ -90,7 +90,7 @@ void init_toolbar()
 
 	toolbar_copy_button = gtk_tool_button_new(
 		gtk_image_new_from_icon_name(
-			"text-x-generic",
+			"gtk-copy",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Copy"
@@ -98,7 +98,7 @@ void init_toolbar()
 
 	toolbar_paste_button = gtk_tool_button_new(
 		gtk_image_new_from_icon_name(
-			"text-x-generic",
+			"paste",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Paste"
@@ -106,7 +106,7 @@ void init_toolbar()
 
 	toolbar_find_button = gtk_tool_button_new(
 		gtk_image_new_from_icon_name(
-			"text-x-generic",
+			"gtk-find",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Find"
@@ -114,7 +114,7 @@ void init_toolbar()
 
 	toolbar_replace_button = gtk_tool_button_new(
 		gtk_image_new_from_icon_name(
-			"text-x-generic",
+			"gtk-find-replace",
 			GTK_ICON_SIZE_SMALL_TOOLBAR
 		),
 		"Replace"

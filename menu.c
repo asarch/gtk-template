@@ -18,7 +18,7 @@ void init_menu()
 	open_menu_item = gtk_menu_item_new_with_mnemonic("_Open");
 	save_menu_item = gtk_menu_item_new_with_mnemonic("_Save");
 	save_as_menu_item = gtk_menu_item_new_with_mnemonic("Save _as");
-	quit_menu_item = gtk_menu_item_new_with_mnemonic("_Qui");
+	quit_menu_item = gtk_menu_item_new_with_mnemonic("_Quit");
 
 	gtk_widget_add_accelerator(new_menu_item, "activate", accel_group, GDK_KEY_N, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 	gtk_widget_add_accelerator(open_menu_item, "activate", accel_group, GDK_KEY_O, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);

@@ -17,10 +17,8 @@ int main(int argc, char *argv[])
 	GtkWidget *text_view;
 	GtkTextBuffer *text_buffer;
 
-	int i;
-	char buf[80];
-
 	gtk_init(&argc, &argv);
+
 	init_window("Template 1.0");
 
 	g_signal_connect_swapped(
@@ -29,6 +27,16 @@ int main(int argc, char *argv[])
 		G_CALLBACK(gtk_main_quit),	/* La funcion que respondera	*/
 		NULL				/* Los datos que le daras	*/
 	);
+
+	/* Los siguientes elementos son opcionales en una aplicacion */
+
+	/* Menu bar */
+	init_menu();
+	gtk_container_add(GTK_CONTAINER(client_area), menu_bar);
+
+	/* Toolbar */
+	init_toolbar();
+	gtk_container_add(GTK_CONTAINER(client_area), toolbar);
 
 	/* Scrolled Window */
 	scrolled_window = gtk_scrolled_window_new(NULL, NULL);
@@ -50,6 +58,7 @@ int main(int argc, char *argv[])
 	*/
 
 	/* Treeview */
+	init_treeview();
 	gtk_container_add(GTK_CONTAINER(scrolled_window), treeview);
 
 	/* Status bar */
