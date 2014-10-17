@@ -1,5 +1,16 @@
 #include "toolbar.h"
 
+/*
+ * From:
+ *
+ * http://stackoverflow.com/questions/7539621/where-gtk-finds-icon-names-to-use-with-gtk-image-new-from-icon-name
+ *
+ * you find:
+ *
+ * http://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html
+ *
+ */
+
 void init_toolbar()
 {
 	toolbar = gtk_toolbar_new();
