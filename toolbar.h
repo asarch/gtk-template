@@ -9,21 +9,21 @@ void init_toolbar();
 
 GtkWidget *toolbar;
 
-GtkToolItem *toolbar_new_button;
-GtkToolItem *toolbar_open_button;
-GtkToolItem *toolbar_save_button;
-GtkToolItem *toolbar_save_as_button;
+GtkToolItem *new_tool_item;
+GtkToolItem *open_tool_item;
+GtkToolItem *save_tool_item;
+GtkToolItem *save_as_tool_item;
 
-GtkToolItem *toolbar_undo_button;
-GtkToolItem *toolbar_redo_button;
+GtkToolItem *undo_tool_item;
+GtkToolItem *redo_tool_item;
 
-GtkToolItem *toolbar_cut_button;
-GtkToolItem *toolbar_copy_button;
-GtkToolItem *toolbar_paste_button;
+GtkToolItem *cut_tool_item;
+GtkToolItem *copy_tool_item;
+GtkToolItem *paste_tool_item;
 
-GtkToolItem *toolbar_find_button;
-GtkToolItem *toolbar_replace_button;
+GtkToolItem *find_tool_item;
+GtkToolItem *replace_tool_item;
 
-GtkToolItem *toolbar_quit_button;
+GtkToolItem *quit_tool_item;
 
 #endif /* #ifndef _TOOLBAR_H_ */

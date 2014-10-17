@@ -10,5 +10,4 @@ void init_window(const char *window_title)
 	/* Main container */
 	client_area = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	gtk_container_add(GTK_CONTAINER(window), client_area);
-
 }
