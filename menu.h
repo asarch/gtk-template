@@ -21,6 +21,7 @@ GtkAccelGroup *accel_group;
 GtkWidget *file_menu_item;
 GtkWidget *file_menu;
 GtkWidget *new_menu_item;
+/* GtkImageMenuItem *new_menu_item; */
 GtkWidget *open_menu_item;
 GtkWidget *save_menu_item;
 GtkWidget *save_as_menu_item;
@@ -33,7 +34,7 @@ GtkWidget *redo_menu_item;
 GtkWidget *cut_menu_item;
 GtkWidget *copy_menu_item;
 GtkWidget *paste_menu_item;
-GtkWidget *delete_menu_item;
+GtkWidget *clear_menu_item;
 GtkWidget *select_all_menu_item;
 
 GtkWidget *search_menu_item;
