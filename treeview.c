@@ -1,6 +1,6 @@
 #include "treeview.h"
 
-void init_treeview()
+void set_up_treeview()
 {
 	int i;
 	char buf[80];

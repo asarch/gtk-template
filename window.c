@@ -1,6 +1,6 @@
 #include "window.h"
 
-void init_window(const char *window_title)
+void set_up_window(const char *window_title)
 {
 	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_title(GTK_WINDOW(window), window_title);

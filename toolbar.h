@@ -1,11 +1,11 @@
 #ifndef _TOOLBAR_H_
 #define _TOOLBAR_H_
 
-#ifndef _MAIN_H_
-#include "main.h"
+#ifndef __GTK_H__
+#include <gtk/gtk.h>
 #endif
 
-void init_toolbar();
+void set_up_toolbar();
 
 GtkWidget *toolbar;
 

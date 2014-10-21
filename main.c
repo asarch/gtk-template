@@ -8,7 +8,7 @@
  */
 #include <string.h>
 
-#include "callbacks.h"
+#include "main.h"
 
 int main(int argc, char *argv[])
 {
@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 
 	gtk_init(&argc, &argv);
 
-	init_window("Template 1.0");
+	set_up_window("Template 1.0");
 
 	g_signal_connect_swapped(
 		G_OBJECT(window),		/* El widget			*/
@@ -31,12 +31,19 @@ int main(int argc, char *argv[])
 	/* Los siguientes elementos son opcionales en una aplicacion */
 
 	/* Menu bar */
-	init_menu();
+	set_up_menu(window);
 	gtk_container_add(GTK_CONTAINER(client_area), menu_bar);
 
 	/* Toolbar */
-	init_toolbar();
+	set_up_toolbar();
 	gtk_container_add(GTK_CONTAINER(client_area), toolbar);
+
+	g_signal_connect(
+		G_OBJECT(quit_tool_item),
+		"clicked",
+		G_CALLBACK(gtk_main_quit),
+		NULL
+	);
 
 	/* Scrolled Window */
 	scrolled_window = gtk_scrolled_window_new(NULL, NULL);
@@ -55,14 +62,16 @@ int main(int argc, char *argv[])
 	text_view = gtk_text_view_new();
 	text_buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(text_view));
 	gtk_container_add(GTK_CONTAINER(scrolled_window), text_view);
+
+	gtk_widget_grab_focus(GTK_WIDGET(text_view));
 	*/
 
 	/* Treeview */
-	init_treeview();
+	set_up_treeview();
 	gtk_container_add(GTK_CONTAINER(scrolled_window), treeview);
 
 	/* Status bar */
-	init_statusbar();
+	set_up_statusbar();
 	gtk_box_pack_start(GTK_BOX(client_area), statusbar, FALSE, FALSE, 0);
 
 	gtk_widget_show_all(window);

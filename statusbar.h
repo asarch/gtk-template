@@ -1,11 +1,11 @@
 #ifndef _STATUSBAR_H_
 #define _STATUSBAR_H_
 
-#ifndef _MAIN_H_
-#include "main.h"
+#ifndef __GTK_H__
+#include <gtk/gtk.h>
 #endif
 
-void init_statusbar();
+void set_up_statusbar();
 
 GtkWidget *statusbar;
 

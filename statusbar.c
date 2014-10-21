@@ -1,6 +1,6 @@
 #include "statusbar.h"
 
-void init_statusbar()
+void set_up_statusbar()
 {
 	statusbar = gtk_statusbar_new();
 }

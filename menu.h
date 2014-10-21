@@ -1,27 +1,21 @@
 #ifndef _MENU_H_
 #define _MENU_H_
 
-#ifndef _MAIN_H_
-#include "main.h"
+#ifndef __GTK_H__
+#include <gtk/gtk.h>
 #endif
 
-#ifndef _WINDOW_H_
-#include "window.h"
+#ifndef __GDK_KEYSYMS_H__
+#include <gdk/gdkkeysyms.h>
 #endif
 
-#ifndef _CALLBACKS_H_
-#include "callbacks.h"
-#endif
-
-void init_menu();
+void set_up_menu(GtkWidget *);
 
 GtkWidget *menu_bar;
-GtkAccelGroup *accel_group;
 
 GtkWidget *file_menu_item;
 GtkWidget *file_menu;
 GtkWidget *new_menu_item;
-/* GtkImageMenuItem *new_menu_item; */
 GtkWidget *open_menu_item;
 GtkWidget *save_menu_item;
 GtkWidget *save_as_menu_item;

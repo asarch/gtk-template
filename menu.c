@@ -1,7 +1,10 @@
 #include "menu.h"
 
-void init_menu()
+void set_up_menu(GtkWidget *window)
 {
+	GtkAccelGroup *accel_group;
+
+	/* This should be done in the main function */
 	accel_group = gtk_accel_group_new();
 	gtk_window_add_accel_group(GTK_WINDOW(window), accel_group);
 
@@ -20,11 +23,50 @@ void init_menu()
 	save_as_menu_item = gtk_image_menu_item_new_with_mnemonic("Save _as");
 	quit_menu_item = gtk_image_menu_item_new_with_mnemonic("_Quit");
 
-	gtk_widget_add_accelerator(new_menu_item, "activate", accel_group, GDK_KEY_N, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
-	gtk_widget_add_accelerator(open_menu_item, "activate", accel_group, GDK_KEY_O, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
-	gtk_widget_add_accelerator(save_menu_item, "activate", accel_group, GDK_KEY_S, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
-	gtk_widget_add_accelerator(save_as_menu_item, "activate", accel_group, GDK_KEY_S, GDK_SHIFT_MASK | GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
-	gtk_widget_add_accelerator(quit_menu_item, "activate", accel_group, GDK_KEY_Q, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
+	gtk_widget_add_accelerator(
+		new_menu_item,
+		"activate",
+		accel_group,
+		GDK_KEY_N,
+		GDK_CONTROL_MASK,
+		GTK_ACCEL_VISIBLE
+	);
+
+	gtk_widget_add_accelerator(
+		open_menu_item,
+		"activate",
+		accel_group,
+		GDK_KEY_O,
+		GDK_CONTROL_MASK,
+		GTK_ACCEL_VISIBLE
+	);
+
+	gtk_widget_add_accelerator(
+		save_menu_item,
+		"activate",
+		accel_group,
+		GDK_KEY_S,
+		GDK_CONTROL_MASK,
+		GTK_ACCEL_VISIBLE
+	);
+
+	gtk_widget_add_accelerator(
+		save_as_menu_item,
+		"activate",
+		accel_group,
+		GDK_KEY_S,
+		GDK_SHIFT_MASK | GDK_CONTROL_MASK,
+		GTK_ACCEL_VISIBLE
+	);
+
+	gtk_widget_add_accelerator(
+		quit_menu_item,
+		"activate",
+		accel_group,
+		GDK_KEY_Q,
+		GDK_CONTROL_MASK,
+		GTK_ACCEL_VISIBLE
+	);
 
 	gtk_image_menu_item_set_image(
 		GTK_IMAGE_MENU_ITEM(new_menu_item),
@@ -74,12 +116,59 @@ void init_menu()
 	clear_menu_item = gtk_image_menu_item_new_with_mnemonic("_Delete");
 	select_all_menu_item = gtk_image_menu_item_new_with_mnemonic("_Select All");
 
-	gtk_widget_add_accelerator(undo_menu_item, "activate", accel_group, GDK_KEY_Z, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
-	gtk_widget_add_accelerator(redo_menu_item, "activate", accel_group, GDK_KEY_Z, GDK_SHIFT_MASK | GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
-	gtk_widget_add_accelerator(cut_menu_item, "activate", accel_group, GDK_KEY_X, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
-	gtk_widget_add_accelerator(copy_menu_item, "activate", accel_group, GDK_KEY_C, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
-	gtk_widget_add_accelerator(paste_menu_item, "activate", accel_group, GDK_KEY_V, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
-	gtk_widget_add_accelerator(select_all_menu_item, "activate", accel_group, GDK_KEY_A, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
+	gtk_widget_add_accelerator(
+		undo_menu_item,
+		"activate",
+		accel_group,
+		GDK_KEY_Z,
+		GDK_CONTROL_MASK,
+		GTK_ACCEL_VISIBLE
+	);
+
+	gtk_widget_add_accelerator(
+		redo_menu_item,
+		"activate",
+		accel_group,
+		GDK_KEY_Z,
+		GDK_SHIFT_MASK | GDK_CONTROL_MASK,
+		GTK_ACCEL_VISIBLE
+	);
+
+	gtk_widget_add_accelerator(
+		cut_menu_item,
+		"activate",
+		accel_group,
+		GDK_KEY_X,
+		GDK_CONTROL_MASK,
+		GTK_ACCEL_VISIBLE
+	);
+
+	gtk_widget_add_accelerator(
+		copy_menu_item,
+		"activate",
+		accel_group,
+		GDK_KEY_C,
+		GDK_CONTROL_MASK,
+		GTK_ACCEL_VISIBLE
+	);
+
+	gtk_widget_add_accelerator(
+		paste_menu_item,
+		"activate",
+		accel_group,
+		GDK_KEY_V,
+		GDK_CONTROL_MASK,
+		GTK_ACCEL_VISIBLE
+	);
+
+	gtk_widget_add_accelerator(
+		select_all_menu_item,
+		"activate",
+		accel_group,
+		GDK_KEY_A,
+		GDK_CONTROL_MASK,
+		GTK_ACCEL_VISIBLE
+	);
 
 	gtk_image_menu_item_set_image(
 		GTK_IMAGE_MENU_ITEM(undo_menu_item),
@@ -134,16 +223,47 @@ void init_menu()
 	gtk_menu_item_set_submenu(GTK_MENU_ITEM(search_menu_item), search_menu);
 
 	find_menu_item = gtk_image_menu_item_new_with_mnemonic("_Find");
-	find_next_menu_item = gtk_image_menu_item_new_with_mnemonic("Find Next");
-	find_previous_menu_item = gtk_image_menu_item_new_with_mnemonic("Find Previous");
+	find_next_menu_item = gtk_image_menu_item_new_with_mnemonic("Find Ne_xt");
+	find_previous_menu_item = gtk_image_menu_item_new_with_mnemonic("Find Pre_vious");
 	replace_menu_item = gtk_image_menu_item_new_with_mnemonic("_Replace");
 	clear_highlight_menu_item = gtk_image_menu_item_new_with_mnemonic("Clear Hightlight");
 	goto_line_menu_item = gtk_image_menu_item_new_with_mnemonic("Goto Line");
 
-	gtk_widget_add_accelerator(find_next_menu_item , "activate", accel_group, GDK_KEY_G, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
-	gtk_widget_add_accelerator(find_previous_menu_item , "activate", accel_group, GDK_KEY_G, GDK_SHIFT_MASK | GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
-	gtk_widget_add_accelerator(clear_highlight_menu_item , "activate", accel_group, GDK_KEY_K, GDK_SHIFT_MASK | GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
-	gtk_widget_add_accelerator(goto_line_menu_item , "activate", accel_group, GDK_KEY_I, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
+	gtk_widget_add_accelerator(
+		find_next_menu_item,
+		"activate",
+		accel_group,
+		GDK_KEY_G,
+		GDK_CONTROL_MASK,
+		GTK_ACCEL_VISIBLE
+	);
+
+	gtk_widget_add_accelerator(
+		find_previous_menu_item,
+		"activate",
+		accel_group,
+		GDK_KEY_G,
+		GDK_SHIFT_MASK | GDK_CONTROL_MASK,
+		GTK_ACCEL_VISIBLE
+	);
+
+	gtk_widget_add_accelerator(
+		clear_highlight_menu_item,
+		"activate",
+		accel_group,
+		GDK_KEY_K,
+		GDK_SHIFT_MASK | GDK_CONTROL_MASK,
+		GTK_ACCEL_VISIBLE
+	);
+
+	gtk_widget_add_accelerator(
+		goto_line_menu_item,
+		"activate",
+		accel_group,
+		GDK_KEY_I,
+		GDK_CONTROL_MASK,
+		GTK_ACCEL_VISIBLE
+	);
 
 	gtk_image_menu_item_set_image(
 		GTK_IMAGE_MENU_ITEM(find_menu_item),
