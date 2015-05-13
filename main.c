@@ -6,76 +6,93 @@
  *  Descipcion         : Programa en C con lo minimo para crear
  *                       una aplicacion basada en GTK+ 3.x
  */
-#include <string.h>
-
-#include "main.h"
+#include <gtk/gtk.h>
 
 int main(int argc, char *argv[])
 {
-	GtkWidget *scrolled_window;
+	/* Main window */
+	GtkWidget *window;
+	GtkWidget *area;
 
-	GtkWidget *text_view;
-	GtkTextBuffer *text_buffer;
+	GtkWidget *menu_bar;
+
+	GtkWidget *file_menu_item;
+	GtkWidget *file_menu;
+	GtkWidget *quit_menu_item;
+
+	GtkWidget *help_menu_item;
+	GtkWidget *help_menu;
+	GtkWidget *about_menu_item;
+
+	GtkWidget *toolbar;
+	GtkToolItem *quit_tool_item;
+	GtkToolItem *about_tool_item;
+
+	GtkWidget *scrolled;
+
+	GtkListStore *model;
+	GtkWidget *tree_view;
+	GtkCellRenderer *renderer;
+	GtkTreeViewColumn *column;
+
+	GtkWidget *statusbar;
 
 	gtk_init(&argc, &argv);
 
-	set_up_window("Template 1.0");
+	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	gtk_window_set_title(GTK_WINDOW(window), "GTK+ Template Application");
+	gtk_window_set_default_size(GTK_WINDOW(window), 640, 480);
+	g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
 
-	g_signal_connect_swapped(
-		G_OBJECT(window),		/* El widget			*/
-		"destroy",			/* El mensaje que deseas	*/
-		G_CALLBACK(gtk_main_quit),	/* La funcion que respondera	*/
-		NULL				/* Los datos que le daras	*/
-	);
-
-	/* Los siguientes elementos son opcionales en una aplicacion */
+	area = gtk_vbox_new(FALSE, 0);
+	gtk_container_add(GTK_CONTAINER(window), area);
 
 	/* Menu bar */
-	set_up_menu(window);
-	gtk_container_add(GTK_CONTAINER(client_area), menu_bar);
+	menu_bar = gtk_menu_bar_new();
+	gtk_box_pack_start(GTK_BOX(area), menu_bar, FALSE, FALSE, 0);
+
+	file_menu_item = gtk_menu_item_new_with_mnemonic("_File");
+	gtk_menu_shell_append(GTK_MENU_SHELL(menu_bar), file_menu_item);
+
+	file_menu = gtk_menu_new();
+	gtk_menu_item_set_submenu(GTK_MENU_ITEM(file_menu_item), file_menu);
+
+	quit_menu_item = gtk_menu_item_new_with_mnemonic("_Quit");
+	gtk_menu_shell_append(GTK_MENU_SHELL(file_menu), quit_menu_item);
+	g_signal_connect(G_OBJECT(quit_menu_item), "activate", G_CALLBACK(gtk_main_quit), NULL);
+
+	help_menu_item = gtk_menu_item_new_with_mnemonic("_Help");
+	gtk_menu_shell_append(GTK_MENU_SHELL(menu_bar), help_menu_item);
+
+	help_menu = gtk_menu_new();
+	gtk_menu_item_set_submenu(GTK_MENU_ITEM(help_menu_item), help_menu);
+
+	about_menu_item = gtk_menu_item_new_with_mnemonic("_About");
+	gtk_menu_shell_append(GTK_MENU_SHELL(help_menu), about_menu_item);
+
 
 	/* Toolbar */
-	set_up_toolbar();
-	gtk_container_add(GTK_CONTAINER(client_area), toolbar);
+	toolbar = gtk_toolbar_new();
+	gtk_toolbar_set_style(GTK_TOOLBAR(toolbar), GTK_TOOLBAR_ICONS);
+	gtk_box_pack_start(GTK_BOX(area), toolbar, FALSE, FALSE, 0);
 
-	g_signal_connect(
-		G_OBJECT(quit_tool_item),
-		"clicked",
-		G_CALLBACK(gtk_main_quit),
-		NULL
-	);
+	quit_tool_item = gtk_tool_button_new_from_stock(GTK_STOCK_QUIT);
+	g_signal_connect(G_OBJECT(quit_tool_item), "clicked", G_CALLBACK(gtk_main_quit), NULL);
+	gtk_tool_item_set_tooltip_text(GTK_TOOL_ITEM(quit_tool_item), "Termina la aplicacion");
+	gtk_toolbar_insert(GTK_TOOLBAR(toolbar), quit_tool_item, -1);
 
-	/* Scrolled Window */
-	scrolled_window = gtk_scrolled_window_new(NULL, NULL);
-	gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window), GTK_SHADOW_IN);
+	gtk_toolbar_insert(GTK_TOOLBAR(toolbar), gtk_separator_tool_item_new(), -1);
 
-	gtk_scrolled_window_set_policy(
-		GTK_SCROLLED_WINDOW(scrolled_window),
-		GTK_POLICY_ALWAYS,
-		GTK_POLICY_ALWAYS
-	);
+	about_tool_item = gtk_tool_button_new_from_stock(GTK_STOCK_ABOUT);
+	gtk_toolbar_insert(GTK_TOOLBAR(toolbar), about_tool_item, -1);
+	gtk_tool_item_set_tooltip_text(GTK_TOOL_ITEM(about_tool_item), "About");
 
-	gtk_box_pack_start(GTK_BOX(client_area), scrolled_window, TRUE, TRUE, 0);
-
-	/* Textview widget */
-	/*
-	text_view = gtk_text_view_new();
-	text_buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(text_view));
-	gtk_container_add(GTK_CONTAINER(scrolled_window), text_view);
-
-	gtk_widget_grab_focus(GTK_WIDGET(text_view));
-	*/
-
-	/* Treeview */
-	set_up_treeview();
-	gtk_container_add(GTK_CONTAINER(scrolled_window), treeview);
-
-	/* Status bar */
-	set_up_statusbar();
-	gtk_box_pack_start(GTK_BOX(client_area), statusbar, FALSE, FALSE, 0);
+	/* Statusbar */
+	statusbar = gtk_statusbar_new();
+	gtk_box_pack_start(GTK_BOX(area), statusbar, FALSE, FALSE, 0);
 
 	gtk_widget_show_all(window);
 	gtk_main();
-
-	return EXIT_SUCCESS;
+	
+	return 0;
 }
