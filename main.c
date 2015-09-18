@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
 	/* Main window */
 	GtkWidget *window;
-	GtkWidget *area;
+	GtkWidget *content;
 
 	GtkWidget *menu_bar;
 
@@ -24,10 +24,12 @@ int main(int argc, char *argv[])
 	GtkWidget *help_menu;
 	GtkWidget *about_menu_item;
 
+	/* Toolbar */
 	GtkWidget *toolbar;
 	GtkToolItem *quit_tool_item;
 	GtkToolItem *about_tool_item;
 
+	/* Tree View */
 	GtkWidget *scrolled;
 
 	GtkListStore *model;
@@ -35,6 +37,7 @@ int main(int argc, char *argv[])
 	GtkCellRenderer *renderer;
 	GtkTreeViewColumn *column;
 
+	/* Statusbar */
 	GtkWidget *statusbar;
 
 	gtk_init(&argc, &argv);
@@ -44,12 +47,12 @@ int main(int argc, char *argv[])
 	gtk_window_set_default_size(GTK_WINDOW(window), 640, 480);
 	g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
 
-	area = gtk_vbox_new(FALSE, 0);
-	gtk_container_add(GTK_CONTAINER(window), area);
+	content = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+	gtk_container_add(GTK_CONTAINER(window), content);
 
 	/* Menu bar */
 	menu_bar = gtk_menu_bar_new();
-	gtk_box_pack_start(GTK_BOX(area), menu_bar, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(content), menu_bar, FALSE, FALSE, 0);
 
 	file_menu_item = gtk_menu_item_new_with_mnemonic("_File");
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu_bar), file_menu_item);
@@ -70,26 +73,25 @@ int main(int argc, char *argv[])
 	about_menu_item = gtk_menu_item_new_with_mnemonic("_About");
 	gtk_menu_shell_append(GTK_MENU_SHELL(help_menu), about_menu_item);
 
-
 	/* Toolbar */
 	toolbar = gtk_toolbar_new();
 	gtk_toolbar_set_style(GTK_TOOLBAR(toolbar), GTK_TOOLBAR_ICONS);
-	gtk_box_pack_start(GTK_BOX(area), toolbar, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(content), toolbar, FALSE, FALSE, 0);
 
-	quit_tool_item = gtk_tool_button_new_from_stock(GTK_STOCK_QUIT);
+	quit_tool_item = gtk_tool_button_new(NULL, "Quit");
 	g_signal_connect(G_OBJECT(quit_tool_item), "clicked", G_CALLBACK(gtk_main_quit), NULL);
 	gtk_tool_item_set_tooltip_text(GTK_TOOL_ITEM(quit_tool_item), "Termina la aplicacion");
 	gtk_toolbar_insert(GTK_TOOLBAR(toolbar), quit_tool_item, -1);
 
 	gtk_toolbar_insert(GTK_TOOLBAR(toolbar), gtk_separator_tool_item_new(), -1);
 
-	about_tool_item = gtk_tool_button_new_from_stock(GTK_STOCK_ABOUT);
+	about_tool_item = gtk_tool_button_new(NULL, "About");
 	gtk_toolbar_insert(GTK_TOOLBAR(toolbar), about_tool_item, -1);
 	gtk_tool_item_set_tooltip_text(GTK_TOOL_ITEM(about_tool_item), "About");
 
 	/* Statusbar */
 	statusbar = gtk_statusbar_new();
-	gtk_box_pack_start(GTK_BOX(area), statusbar, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(content), statusbar, FALSE, FALSE, 0);
 
 	gtk_widget_show_all(window);
 	gtk_main();
