@@ -78,14 +78,14 @@ int main(int argc, char *argv[])
 	gtk_toolbar_set_style(GTK_TOOLBAR(toolbar), GTK_TOOLBAR_ICONS);
 	gtk_box_pack_start(GTK_BOX(content), toolbar, FALSE, FALSE, 0);
 
-	quit_tool_item = gtk_tool_button_new(NULL, "Quit");
+	quit_tool_item = gtk_tool_button_new(gtk_image_new_from_icon_name("application-exit", GTK_ICON_SIZE_SMALL_TOOLBAR), "Quit");
 	g_signal_connect(G_OBJECT(quit_tool_item), "clicked", G_CALLBACK(gtk_main_quit), NULL);
-	gtk_tool_item_set_tooltip_text(GTK_TOOL_ITEM(quit_tool_item), "Termina la aplicacion");
+	gtk_tool_item_set_tooltip_text(GTK_TOOL_ITEM(quit_tool_item), "Quit application");
 	gtk_toolbar_insert(GTK_TOOLBAR(toolbar), quit_tool_item, -1);
 
 	gtk_toolbar_insert(GTK_TOOLBAR(toolbar), gtk_separator_tool_item_new(), -1);
 
-	about_tool_item = gtk_tool_button_new(NULL, "About");
+	about_tool_item = gtk_tool_button_new(gtk_image_new_from_icon_name("help-about", GTK_ICON_SIZE_SMALL_TOOLBAR), "About");
 	gtk_toolbar_insert(GTK_TOOLBAR(toolbar), about_tool_item, -1);
 	gtk_tool_item_set_tooltip_text(GTK_TOOL_ITEM(about_tool_item), "About");
 
