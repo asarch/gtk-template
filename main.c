@@ -5,6 +5,13 @@
  *  Nombre del programa: GTK+ Template
  *  Descipcion         : Programa en C con lo minimo para crear
  *                       una aplicacion basada en GTK+ 3.x
+ *  Nombre de los iconos:
+ *
+ *  - Icon Naming Specification
+ *    http://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html
+ *
+ *  - Icon Naming Specification (GNOME Site)
+ *    https://developer.gnome.org/icon-naming-spec/
  */
 #include <gtk/gtk.h>
 
