@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+#  From: http://stackoverflow.com/questions/7539621/where-gtk-finds-icon-names-to-use-with-gtk-image-new-from-icon-name
+#
+#  - http://dl.0xdeadc0de.fr/misc/gtkiconview_freedesktop.py
+#  - http://dl.0xdeadc0de.fr/misc/gtkiconview_local.py
+
 from gi.repository import Gtk
 
 #---------------------------------------------------------------------
